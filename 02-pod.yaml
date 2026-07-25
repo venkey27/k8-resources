@@ -1,0 +1,15 @@
+apiVersion: v1 
+kind: Pod
+metadata:
+  name: nginx # pod name
+  labels:
+    project: roboshop
+    envirnoment: dev
+    purpose: poc
+
+# pod contains one more many containers and share same network
+spec: 
+  containers
+  - name: nginx # container name # list means this - 
+    image: nginx # image get from docker hub by default
+    
