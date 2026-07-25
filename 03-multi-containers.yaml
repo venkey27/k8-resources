@@ -14,6 +14,6 @@ spec:
 
   - name: almalinux
     image: almalinux:9
-    command: ["/bin/sh", "-c", "sleep infinity"]
+    command: ["sleep", "1000"]
 
   
