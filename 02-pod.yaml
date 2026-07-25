@@ -9,7 +9,6 @@ metadata:
 
 # pod contains one more many containers and share same network
 spec: 
-  containers
+  containers:
   - name: nginx # container name # list means this - 
     image: nginx # image get from docker hub by default
-    
