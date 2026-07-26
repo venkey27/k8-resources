@@ -7,7 +7,7 @@ metadata:
     envirnoment: dev
     purpose: poc
 
-# pod contains one more many containers and share same network
+# pod contains one more many containers and share same network and storage
 spec: 
   containers:
   - name: nginx # container name # list means this - 
