@@ -7,7 +7,3 @@ metadata:
     envirnoment: dev
     purpose: poc
 
-  spec:
-  containers:
-  - name: nginx
-    image: nginx
