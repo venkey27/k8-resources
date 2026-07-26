@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-lb
+  # servicer labels
+  labels:
+    project: roboshop
+    environment: dev
+spec:
+ # NodePort is used to acess the pod form internet
+  type: LoadBalancer
+  # Service uses the below labels to select the pods
+  selector:
+    project: roboshop     # this is label for pod below 
+    tier: frontend        # this is label for pod below 
+    component: frontend   # this is label for pod below 
+  ports:
+    - protocol: TCP
+      port: 80 # service port
+      targetPort: 80 # container port
