@@ -7,7 +7,11 @@ spec:
   - name: nginx
     image: nginx
 
-    envirnoment:
-      project: roboshop
-      course: "k8"
-      duration: "150 hrs"
+    # environment variables
+    env:
+    - name: project      # - means data type list -
+      value: "roboshop"
+    - name: course
+      value: "k8"
+    - name: duration
+      value: "150 hrs"
