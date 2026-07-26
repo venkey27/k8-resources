@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: pod
+metadata:
+  name: annotations
+
+  #labels adds metadata to the pod, these are selectors inside kubernetes. you cant have special chars, max char 63
+  labels:
+    project: roboshop
+
+  #annotations are used to provide info to the resources external to kubernetes. you can urls, special char, max length is 256kb
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+    jenkins-build-url: "https://jenkins.joindevops.com/build/roboshop/job/2"
