@@ -9,7 +9,7 @@ metadata:
     component: frontend
     purpose: deployment
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       project: roboshop
@@ -30,3 +30,6 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+
+# deployment will create one REPLICASET, sience replicas: 3, then REPLICASET will create  3 PODS
+# pod is subset of replicaset. replicaset is subset of deployment
