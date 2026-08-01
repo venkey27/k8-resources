@@ -9,7 +9,7 @@ spec:
     name: nginx
     # mounting nginx-logs volume to nginx container
     volumeMounts:
-    - mountPath: /var/log/nginx
+    - mountPath: /var/log/nginx          # /var/log/nginx is standard path             # different path to save logs 
       name: nginx-logs
     # almalinux container
   - image: almalinux:9
@@ -17,7 +17,7 @@ spec:
     command: ["sleep", "1000"]
     # mounting nginx-logs volumme to almalinux container
     volumeMounts:
-    - mountPath: /mnt/nginx-logs
+    - mountPath: /mnt/nginx-logs           # /var/log/nginx is customized path           # different path to save logs 
       name: nginx-logs
       readOnly: true
   # volumes    
