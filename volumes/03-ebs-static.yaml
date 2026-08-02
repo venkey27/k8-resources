@@ -1,3 +1,5 @@
+# PV is underlying srorage, PVC claims the stroage and POD is using the storage 
+
 # PV:static provisioing -> we create disk manually and mount it
 apiVersion: v1
 kind: PersistentVolume
