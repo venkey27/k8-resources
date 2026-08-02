@@ -10,3 +10,4 @@ reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
 ---
 
+# the PVC and Pod manifests are in next 05-ebs-dynamic.yaml file
