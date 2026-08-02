@@ -1,3 +1,6 @@
+# When using ebs-sc (or any StorageClass), Kubernetes creates the EBS volume in AWS automatically as soon as you deploy your Pod.
+# StorageClass = The Blueprint (tells Kubernetes how to build the disk in AWS).
+# You must write and apply the PVC and Pod manifests.
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -5,3 +8,5 @@ metadata:
 provisioner: ebs.csi.aws.com
 reclaimPolicy: Retain
 volumeBindingMode: WaitForFirstConsumer
+---
+
