@@ -1,0 +1,18 @@
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: efs-static
+spec:
+  # capacity and storage is dummy here, STORAGE IS UNLIMITED, STORAGE GROWS BY USEAGE
+  capacity:
+    storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  storageClassName: "" # for static provisioning storage class should be empty 
+  persistentVolumeClaimPolicy: Retain
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-01458611d268e2544 # Replace with your EFS ID
