@@ -1,3 +1,8 @@
+
+# DaemonSet Role=Purpose: Ensures that exactly one pod replica runs on every single node (or a selected subset of nodes using node selectors/tolerations) across the cluster.
+# hostPath=Purpose: Mounts a file or directory from the host node's filesystem directly into the container's filesystem.
+# hostPath takes a directory (or file) that already exists on the worker node (the host machine running your Pod) and mounts it directly inside your container.s
+# filesystem: When you want to open, read, or grab data from your hard disk, the filesystem is the component that actually goes into the disk, finds the data, and gets it for you.
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:

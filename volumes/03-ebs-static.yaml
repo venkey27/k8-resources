@@ -1,0 +1,14 @@
+# static provisioing -> we create disk manually and mount it
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ebs-static 
+spec:
+  accessModes:
+    - ReadWriteOnce     # at a time only one node can access. pods in that node can access, # ReadWriteOnce because one laptop can only have on DISK
+  capacity:
+    storage: 2Gi
+  csi:
+    driver: ebs.csi.aws.com
+    fsType: ext4
+    volumeHandle: vol-0f09b807eeb503b42   # Replace with your actual AWS EBS Volume ID 
