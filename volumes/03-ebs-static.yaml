@@ -45,4 +45,6 @@ spec:
   - name: persistent-storage
     persistentVolumeClaim:
       claimName: ebs-static
-  
+  # we are telling k8 to send POD TO us-east-1c NODE
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1c
