@@ -1,0 +1,57 @@
+# clusterIP: None means "don't give this service a virtual IP, and don't load balance traffic."
+#Instead of routing traffic to a random pod through one shared IP address, Kubernetes gives you the direct IP addresses(END POINTS) of all
+# individual pods in that group so they can talk directly to each other.
+
+# Endpoint IP = A Real IP. It belongs to an actual running Pod container (e.g., 10.244.1.10). If the pod dies, that IP address disappears.
+# Virtual IP = A Fake IP. It doesn't belong to any container or server. It's just a dummy routing address created by Kubernetes (e.g., 10.96.0.50)
+# that acts as a traffic controller to pass requests to the Real IPs.
+
+# CREATING HEADLESS SERVICE
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  ports:
+  - port: 80
+    name: web
+  clusterIP: None # headless service
+  selector:
+    app: nginx
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: nginx # has to match .spec.template.metadata.labels
+  serviceName: "nginx"
+  replicas: 3 # by default is 1        # for 3 replicas 3 induvidual volumes will create
+  template:
+    metadata:
+      labels:
+        app: nginx # has to match .spec.selector.matchLabels
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  # PVC
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "roboshop-ebs"
+      resources:
+        requests:
+          storage: 1Gi
