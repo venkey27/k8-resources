@@ -30,7 +30,7 @@ spec:
     matchLabels:
       app: nginx # has to match .spec.template.metadata.labels
   serviceName: "nginx"
-  replicas: 3 # by default is 1        # for 3 replicas 3 induvidual volumes will create
+  replicas: 3 # by default is 1        # for 3 replicas 3 induvidual volumes will create, because for stateful set every POD needs its own STORAGE
   template:
     metadata:
       labels:

@@ -6,3 +6,6 @@ metadata:
     envirnoment: dev
     project: roboshop
     purpose: poc
+
+# whenever a namespace is created, kubernetes creates a default service account with 0 permissions.  
+# by default all the pods run in that namespace use this default service account
